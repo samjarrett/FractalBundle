@@ -4,7 +4,9 @@
 	"type": "library",
 	"description": "A Symfony2 Bundle for Fractal by League. Implements dependency injection into your transformers",
 	"autoload": {
-		"psr-4": { "": "src/" }
+		"psr-4": {
+			"SamJ\\FractalBundle\\": "src/"
+		}
 	},
 	"require": {
 		"php": ">=5.3.3",
