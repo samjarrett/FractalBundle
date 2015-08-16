@@ -3,9 +3,10 @@
 namespace SamJ\FractalBundle;
 
 use League\Fractal\Manager as BaseManager;
-use League\Fractal\Resource\ResourceAbstract;
+use League\Fractal\Resource\ResourceInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use League\Fractal\Scope as BaseScope;
 
 class Manager extends BaseManager implements ContainerAwareInterface
 {
@@ -28,10 +29,11 @@ class Manager extends BaseManager implements ContainerAwareInterface
      *
      * @param \League\Fractal\Resource\ResourceAbstract $resource
      * @param string $scopeIdentifier
-     * @param string $parentScopeInstance
+     * @param BaseScope $parentScopeInstance
      * @return \League\Fractal\Scope
      **/
-    public function createData(ResourceAbstract $resource, $scopeIdentifier = null, $parentScopeInstance = null)
+    public function createData(ResourceInterface $resource, $scopeIdentifier = null,
+                               BaseScope $parentScopeInstance = null)
     {
         $scopeInstance = new Scope($this, $resource, $scopeIdentifier);
         $scopeInstance->setContainer($this->container);
