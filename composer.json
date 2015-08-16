@@ -1,16 +1,16 @@
 {
-	"name": "samj/fractal-bundle",
-	"license": "MIT",
-	"type": "library",
-	"description": "A Symfony2 Bundle for Fractal by League. Implements dependency injection into your transformers",
-	"autoload": {
-		"psr-4": {
-			"SamJ\\FractalBundle\\": "src/"
-		}
-	},
-	"require": {
-		"php": ">=5.3.3",
-		"symfony/symfony": ">=2.3.19",
-		"league/fractal": "~0.9.1"
-	}
+    "name": "samj/fractal-bundle",
+    "license": "MIT",
+    "type": "library",
+    "description": "A Symfony2 Bundle for Fractal by League. Implements dependency injection into your transformers",
+    "autoload": {
+        "psr-4": {
+            "SamJ\\FractalBundle\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": ">=2.3.19",
+        "league/fractal": "~0.12.0"
+    }
 }
