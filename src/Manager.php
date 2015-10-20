@@ -23,15 +23,16 @@ class Manager extends BaseManager implements ContainerAwareInterface
     }
 
     /**
-     * Create Data
+     * Create Data.
      *
      * Main method to kick this all off. Make a resource then pass it over, and use toArray()
      *
-     * @param \League\Fractal\Resource\ResourceAbstract $resource
-     * @param string $scopeIdentifier
-     * @param BaseScope $parentScopeInstance
-     * @return \League\Fractal\Scope
-     **/
+     * @param ResourceInterface $resource
+     * @param string            $scopeIdentifier
+     * @param Scope             $parentScopeInstance
+     *
+     * @return Scope
+     */
     public function createData(ResourceInterface $resource, $scopeIdentifier = null,
                                BaseScope $parentScopeInstance = null)
     {
@@ -40,10 +41,9 @@ class Manager extends BaseManager implements ContainerAwareInterface
 
         // Update scope history
         if ($parentScopeInstance !== null) {
-
             // This will be the new children list of parents (parents parents, plus the parent)
             $scopeArray = $parentScopeInstance->getParentScopes();
-            $scopeArray[] = $parentScopeInstance->getCurrentScope();
+            $scopeArray[] = $parentScopeInstance->getScopeIdentifier();
 
             $scopeInstance->setParentScopes($scopeArray);
         }
