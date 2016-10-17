@@ -20,7 +20,7 @@ final class Author
     /**
      * @return string
      */
-    public function id(): string
+    public function id()
     {
         return $this->id;
     }
