@@ -1,0 +1,23 @@
+parameters:
+    locale: en
+    kernel.secret: "example"
+
+framework:
+    test: ~
+    secret: "%kernel.secret%"
+    session:
+        storage_id: session.storage.mock_file
+    profiler:
+        collect: false
+    router:
+        resource: "%kernel.root_dir%/Resources/routing.yml"
+        strict_requirements: ~
+    validation:
+      enabled: true
+
+services:
+  app.controller.books:
+    class: Tests\Fixtures\Controller\BooksController
+
+  app.controller.authors:
+    class: Tests\Fixtures\Controller\AuthorsController

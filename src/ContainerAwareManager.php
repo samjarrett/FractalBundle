@@ -2,25 +2,15 @@
 
 namespace SamJ\FractalBundle;
 
-use League\Fractal\Manager as BaseManager;
+use League\Fractal\Manager;
 use League\Fractal\Resource\ResourceInterface;
+use League\Fractal\Scope;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use League\Fractal\Scope as BaseScope;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class Manager extends BaseManager implements ContainerAwareInterface
+class ContainerAwareManager extends Manager implements ContainerAwareInterface
 {
-    private $container;
-
-    /**
-     * Sets the Container.
-     *
-     * @param ContainerInterface|null $container A ContainerInterface instance or null
-     */
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
-    }
+    use ContainerAwareTrait;
 
     /**
      * Create Data.
@@ -31,12 +21,12 @@ class Manager extends BaseManager implements ContainerAwareInterface
      * @param string            $scopeIdentifier
      * @param Scope             $parentScopeInstance
      *
-     * @return Scope
+     * @return ContainerAwareScope
      */
     public function createData(ResourceInterface $resource, $scopeIdentifier = null,
-                               BaseScope $parentScopeInstance = null)
+                               Scope $parentScopeInstance = null)
     {
-        $scopeInstance = new Scope($this, $resource, $scopeIdentifier);
+        $scopeInstance = new ContainerAwareScope($this, $resource, $scopeIdentifier);
         $scopeInstance->setContainer($this->container);
 
         // Update scope history
