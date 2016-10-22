@@ -55,7 +55,7 @@ class UserTransformer extends TransformerAbstract
 }
 ```
 
-Then you could just register this class as service, and pass service ID as transformer. This bundle then will try to get it from controller:
+Then you could just register this class as service, and pass service ID as transformer. This bundle then will try to get it from container:
 
 ```php
 $resource = new Collection($users, 'app.transformer.user');
