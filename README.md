@@ -13,7 +13,7 @@ composer require samj/fractal-bundle
 
 Then register bundle in `app/AppKernel.php`:
 
-```
+```php
 public function registerBundles()
 {
     return [
@@ -29,7 +29,7 @@ Now we can write and use fractal transformers:
 
 There are several cases when you need to pass some dependencies into transformer. The common one is [role/scope based results](https://github.com/thephpleague/fractal/issues/327) in transformers. For example you need to show `email` field only for administrators or owner of user profile:
 
-```
+```php
 class UserTransformer extends TransformerAbstract
 {
     private $authorizationCheker;
