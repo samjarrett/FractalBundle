@@ -12,8 +12,6 @@ framework:
     router:
         resource: "%kernel.root_dir%/Resources/routing.yml"
         strict_requirements: ~
-    validation:
-      enabled: true
 
 services:
   app.controller.books:
