@@ -9,7 +9,7 @@
     </parameters>
 
     <services>
-        <service id="sam_j_fractal.manager" class="%sam_j_fractal.manager.class%">
+        <service id="sam_j_fractal.manager" class="%sam_j_fractal.manager.class%" public="true">
 	        <call method="setContainer">
 		        <argument type="service" id="service_container"/>
 	        </call>
