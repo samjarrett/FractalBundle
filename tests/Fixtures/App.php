@@ -5,14 +5,9 @@ namespace Tests\Fixtures;
 use SamJ\FractalBundle\SamJFractalBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\Kernel;
 use Tests\Fixtures\Model\Author;
 use Tests\Fixtures\Model\Book;
-use Tests\Fixtures\Model\BookShelf;
-use Tests\Fixtures\Transformer\AuthorTransformer;
-use Tests\Fixtures\Transformer\BookTransformer;
-use Tests\Fixtures\Transformer\CommentTransformer;
 
 class App extends Kernel
 {
@@ -20,22 +15,13 @@ class App extends Kernel
     {
         $container = parent::buildContainer();
 
-        $container
-            ->register(Services::BOOK_SHELF, BookShelf::class);
-        $container
-            ->register(Services::AUTHORS_TRANSFORMER, AuthorTransformer::class)
-            ->addArgument(new Reference(Services::BOOK_SHELF));
-        $container
-            ->register(Services::BOOKS_TRANSFORMER, BookTransformer::class);
-        $container
-            ->register(Services::COMMENTS_TRANSFORMER, CommentTransformer::class);
-
         return $container;
     }
 
     public function boot()
     {
         parent::boot();
+
         $this->populateData();
     }
 

@@ -3,19 +3,23 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Tests\Fixtures\App;
 
 class FractalBundleTest extends TestCase
 {
-    /** @var  App */
+    /** @var App */
     private $app;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->app = new App('test', true);
-        $this->app->boot();
+    }
+
+    public function tearDown(): void
+    {
+        $this->app->shutdown();
+        $this->app = null;
     }
 
     public function test_authors_list()
@@ -53,12 +57,13 @@ class FractalBundleTest extends TestCase
 
     /**
      * @param string $uri
+     *
      * @return array
      */
     private function request($uri)
     {
         $response = $this->app->handle(Request::create($uri, 'GET'));
-        $json = json_decode($response->getContent(), true);
+        $json     = json_decode($response->getContent(), true);
 
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals(JSON_ERROR_NONE, json_last_error());

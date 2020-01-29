@@ -1,13 +1,14 @@
 list_of_books:
     path:      /books
-    defaults:  {_controller: 'AppBundle:Books:listOfBooks'}
+    controller: Tests\Fixtures\Controller\BooksController::listOfBooksAction
 
 book_details:
     path:      /books/{id}
-    requirements: {"id": "w+"}
-    defaults:  {_controller: 'AppBundle:Books:bookDetails'}
+    controller: \Tests\Fixtures\Controller\BooksController::bookDetailsAction
+    requirements:
+        id: w+
 
 list_of_authors:
     path:      /authors
-    defaults:  {_controller: 'AppBundle:Authors:listOfAuthors'}
+    controller: \Tests\Fixtures\Controller\AuthorsController::listOfAuthorsAction
 

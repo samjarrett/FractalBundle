@@ -9,10 +9,14 @@
     </parameters>
 
     <services>
-        <service id="sam_j_fractal.manager" class="%sam_j_fractal.manager.class%" public="true">
+        <service id="SamJ\FractalBundle\ContainerAwareManager" class="%sam_j_fractal.manager.class%" public="true">
 	        <call method="setContainer">
 		        <argument type="service" id="service_container"/>
 	        </call>
         </service>
+
+        <service id="sam_j_fractal.manager" alias="SamJ\FractalBundle\ContainerAwareManager" />
+        <service id="League\Fractal\Manager" alias="SamJ\FractalBundle\ContainerAwareManager" />
+
     </services>
 </container>
