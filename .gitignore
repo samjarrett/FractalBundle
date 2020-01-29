@@ -1,4 +1,6 @@
+var
 vendor
 tests/Fixtures/logs
 tests/Fixtures/cache
 .idea
+.phpunit.result.cache

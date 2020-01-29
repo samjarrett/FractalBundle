@@ -2,13 +2,18 @@
 
 namespace Tests\Fixtures;
 
+use Tests\Fixtures\Model\BookShelf;
+use Tests\Fixtures\Transformer\AuthorTransformer;
+use Tests\Fixtures\Transformer\BookTransformer;
+use Tests\Fixtures\Transformer\CommentTransformer;
+
 class Services
 {
     // fractal transformers
-    const BOOKS_TRANSFORMER = 'app.transformer.books_transformer';
-    const AUTHORS_TRANSFORMER = 'app.transformer.authors_transformer';
-    const COMMENTS_TRANSFORMER = 'app.transformer.comment_transformer';
+    const BOOKS_TRANSFORMER = BookTransformer::class;
+    const AUTHORS_TRANSFORMER = AuthorTransformer::class;
+    const COMMENTS_TRANSFORMER = CommentTransformer::class;
 
     // repositories
-    const BOOK_SHELF = 'app.model.books_shelf';
+    const BOOK_SHELF = BookShelf::class;
 }

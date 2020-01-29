@@ -3,19 +3,30 @@ parameters:
     kernel.secret: "example"
 
 framework:
-    test: ~
+    test: true
     secret: "%kernel.secret%"
     session:
         storage_id: session.storage.mock_file
     profiler:
         collect: false
     router:
-        resource: "%kernel.root_dir%/Resources/routing.yml"
+        resource: '%kernel.project_dir%/tests/Fixtures/Resources/routing.yml'
         strict_requirements: ~
 
 services:
-  app.controller.books:
-    class: Tests\Fixtures\Controller\BooksController
+    _defaults:
+        autowire:      true
+        autoconfigure: true
 
-  app.controller.authors:
-    class: Tests\Fixtures\Controller\AuthorsController
+    Tests\Fixtures\Model\BookShelf:
+        class: Tests\Fixtures\Model\BookShelf
+        public: true
+
+    Tests\Fixtures\Controller\:
+        resource: '%kernel.project_dir%/tests/Fixtures/Controller/'
+        tags: ['controller.service_arguments']
+
+    Tests\Fixtures\Transformer\:
+        resource: '%kernel.project_dir%/tests/Fixtures/Transformer/'
+        public: true
+

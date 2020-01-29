@@ -7,17 +7,21 @@ use Symfony\Component\HttpFoundation\Request;
 
 trait FractalTrait
 {
+
+    /**
+     * @var Manager
+     */
+    protected $fractal;
+
     /**
      * @return Manager
      */
     protected function fractal(Request $request)
     {
-        /** @var Manager $manager */
-        $manager = $this->get('sam_j_fractal.manager');
         if ($request->query->has('include')) {
-            $manager->parseIncludes($request->query->get('include'));
+            $this->fractal->parseIncludes($request->query->get('include'));
         }
 
-        return $manager;
+        return $this->fractal;
     }
 }
