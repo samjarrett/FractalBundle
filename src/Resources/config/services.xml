@@ -15,8 +15,8 @@
 	        </call>
         </service>
 
-        <service id="sam_j_fractal.manager" alias="SamJ\FractalBundle\ContainerAwareManager" />
-        <service id="League\Fractal\Manager" alias="SamJ\FractalBundle\ContainerAwareManager" />
+        <service id="sam_j_fractal.manager" alias="SamJ\FractalBundle\ContainerAwareManager" public="true" />
+        <service id="League\Fractal\Manager" alias="SamJ\FractalBundle\ContainerAwareManager" public="true" />
 
     </services>
 </container>
