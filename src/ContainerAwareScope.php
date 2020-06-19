@@ -3,10 +3,8 @@
 namespace SamJ\FractalBundle;
 
 use League\Fractal\Scope;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class ContainerAwareScope extends Scope implements ContainerAwareInterface
+class ContainerAwareScope extends Scope
 {
     use ContainerAwareTrait;
 

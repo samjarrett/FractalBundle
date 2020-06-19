@@ -5,10 +5,8 @@ namespace SamJ\FractalBundle;
 use League\Fractal\Manager;
 use League\Fractal\Resource\ResourceInterface;
 use League\Fractal\Scope;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 
-class ContainerAwareManager extends Manager implements ContainerAwareInterface
+class ContainerAwareManager extends Manager
 {
     use ContainerAwareTrait;
 
