@@ -25,6 +25,12 @@ public function registerBundles()
 
 Now we can write and use fractal transformers:
 
+## Create Transformers from command
+
+You can create new transformer using `php bin/console make:fractal:transformer`.
+
+Your new transformer will be located at `src/Transformer`.
+
 ## Using Transformers as Services
 
 There are several cases when you need to pass some dependencies into transformer. The common one is [role/scope based results](https://github.com/thephpleague/fractal/issues/327) in transformers. For example you need to show `email` field only for administrators or owner of user profile:
