@@ -18,5 +18,8 @@
         <service id="sam_j_fractal.manager" alias="SamJ\FractalBundle\ContainerAwareManager" public="true" />
         <service id="League\Fractal\Manager" alias="SamJ\FractalBundle\ContainerAwareManager" public="true" />
 
+        <service id="maker.maker.make_fractal_transformer" class="Symfony\Bundle\MakerBundle\Maker\MakeTransformer">
+            <tag name="maker.command" />
+        </service>
     </services>
 </container>
